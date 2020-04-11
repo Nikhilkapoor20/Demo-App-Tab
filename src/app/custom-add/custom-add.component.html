@@ -1,0 +1,29 @@
+<div class="custom-add-wrapper">
+    <h4> Custom Add</h4>
+    <form class="p-3" [formGroup]=form (ngSubmit)="saveMedicines()">
+        <div class="row justify-content-between">
+            <div class="col-3 col-md-3">
+                <input formControlName="name" class="form-control" type="text" >
+                <div *ngIf="form.get('name').touched && form.get('name').errors" class="alert alert-danger">
+                    <span *ngIf="form.get('name').errors.required">
+                        Name is required
+                    </span>
+                </div>
+            </div>
+            <div class="col-3 col-md-3">
+                <input formControlName="count" class="form-control" type="text" >
+                <div *ngIf="form.get('count').touched && form.get('count').errors" class="alert alert-danger">
+                    <span *ngIf="form.get('count').errors.required">
+                        Count is required
+                    </span>
+                    <span *ngIf="form.get('count').errors.pattern">
+                        Only numbers are allowed
+                    </span>
+                </div>
+            </div>
+            <div class="col-3 col-md-3">
+                <input [disabled]="!form.valid" type="submit" class="btn btn-primary" value="Add Medicine">
+            </div>
+        </div>
+    </form>
+</div>

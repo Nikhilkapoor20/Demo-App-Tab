@@ -1,0 +1,26 @@
+<div class="quick-add-wrapper">
+  <h3>Quick Add Medicines</h3>
+  <table class="table">
+    <thead>
+      <th>Medicine Name</th>
+      <th>Quantity</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medicine of quickMedicines$ | async">
+        <td>
+          {{medicine.name}}
+        </td>
+        <td>
+          <select id="count" [(ngModel)]="medicine.count" (ngModelChange)="updateCartTable(medicine)" name="count">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
